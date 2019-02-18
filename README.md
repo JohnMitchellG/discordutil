@@ -48,6 +48,7 @@ module.exports = class Ping {
 ```
 
 ## Links
+* [Docs](https://discordutil.js.org)
 * [NPM](https://npmjs.com/package/discordutil)
 * [Discord](https://discord.gg/3yXx8CN)
 * [GitHub](https://github.com/chroventer/discordutil)
