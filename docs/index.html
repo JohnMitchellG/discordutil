@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>discordutil</title>
+    
+    
+    
+        <meta name="keywords" content="discord, util, node, npm, javascript" />
+        <meta name="keyword" content="discord, util, node, npm, javascript" />
+    
+    
+    
+    <meta property="og:title" content="discordutil"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://discordutil.js.org"/>
+    <meta property="og:site_name" content="discordutil"/>
+    <meta property="og:url" content="https://discordutil.js.org"/>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <script src="scripts/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:400,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/main.css">
+    
+    
+    <script>
+    var config = {"monospaceLinks":false,"cleverLinks":false,"applicationName":"discordutil","googleAnalytics":"","openGraph":{"title":"discordutil","type":"website","image":"https://discordutil.js.org","site_name":"discordutil","url":"https://discordutil.js.org"},"meta":{"title":"discordutil","description":"","keyword":"discord, util, node, npm, javascript"},"linenums":true,"default":{}};
+    </script>
+    
+
+    
+</head>
+<body>
+<div id="wrap" class="clearfix">
+    
+<div class="navigation">
+    <h3 class="applicationName"><a href="index.html">discordutil</a></h3>
+    <button id="menuToggle" class="btn btn-link btn-lg menu-toggle">
+        <span class="glyphicon glyphicon-menu-hamburger"></span>
+    </button>
+    <div class="search">
+        <input id="search" type="text" class="form-control input-md" placeholder="Search...">
+    </div>
+    <ul class="list">
+    
+        <li class="item" data-name="CommandHandler">
+            <span class="title  ">
+                
+                <a href="CommandHandler.html">CommandHandler</a>
+            </span>
+            <ul class="members itemMembers">
+            
+            <span class="subtitle">Members</span>
+            
+                <li class="parent " data-name="CommandHandler#aliases"><a href="CommandHandler.html#aliases">aliases</a></li>
+            
+                <li class="parent " data-name="CommandHandler#commandDir"><a href="CommandHandler.html#commandDir">commandDir</a></li>
+            
+                <li class="parent " data-name="CommandHandler#commands"><a href="CommandHandler.html#commands">commands</a></li>
+            
+                <li class="parent " data-name="CommandHandler#owner"><a href="CommandHandler.html#owner">owner</a></li>
+            
+                <li class="parent " data-name="CommandHandler#prefix"><a href="CommandHandler.html#prefix">prefix</a></li>
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            <span class="subtitle">Methods</span>
+            
+                <li class="parent  " data-name="CommandHandler#getCommand"><a href="CommandHandler.html#getCommand">getCommand</a></li>
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+    </ul>
+</div>
+    <div class="main">
+        <h1 class="page-title" data-filename="index.html">Index</h1>
+        
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article class="readme content-size"><h1>discordutil</h1><h2>About</h2><p>discordutil is a user-friendly, powerful <a target="_blank" href="https://nodejs.org">Node.js</a> module.</p>
+<h2>Installation</h2><p><strong>Node.js 6.0.0 or newer is required.</strong>  </p>
+<p><strong>Stable</strong>: <code>npm i discordutil</code></p>
+<p><strong>Master</strong>: <code>npm i chroventer/discordutil</code></p>
+<h2>Example</h2><pre class="prettyprint source lang-js"><code>// Main file – index.js
+const { CommandHandler } = require('discordutil');
+const handler = new CommandHandler({
+    commandDir: `${__dirname}/commands/`,
+    prefix: '!'
+});
+
+// Message event
+client.on('message', (message) => {
+    const args = message.content.split(' ');
+    const command = args[0];
+    const cmd = handler.getCommand(command);
+    if (!cmd) return;
+
+    try {
+        cmd.run(client, message, args);
+    } catch (err) {
+        return console.error(err);
+    }
+});
+
+// commands/ping.js
+module.exports = class Ping {
+    constructor() {
+        this.name = 'ping',
+            this.aliases = ['pong'],
+            this.usage = '!ping'
+    }
+
+    async run(client, message, args) {
+        return message.channel.send('Pong!');
+    }
+}</code></pre><h2>Links</h2><ul>
+<li><a target="_blank" href="https://npmjs.com/package/discordutil">NPM</a></li>
+<li><a target="_blank" href="https://discord.gg/3yXx8CN">Discord</a></li>
+<li><a target="_blank" href="https://github.com/chroventer/discordutil">GitHub</a></li>
+</ul></article>
+    </section>
+
+
+
+
+
+
+        
+
+        <footer class="content-size">
+            <div class="footer">
+                Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Feb 18 2019 18:00:16 GMT+0400 (Gulf Standard Time)
+            </div>
+        </footer>
+    </div>
+</div>
+<script>prettyPrint();</script>
+<script src="scripts/main.js"></script>
+</body>
+</html>

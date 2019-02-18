@@ -2,10 +2,17 @@
 
 const fs = require('fs');
 
+/**
+ * CommandHandler instance
+ */
 class CommandHandler {
+
+    /**
+     * @param {Object} [options] Options for the command handler
+     */
     constructor(options = {}) {
 
-        if (!options.commandDir) throw new Error('Supply a command directory');
+        // if (!options.commandDir) throw new Error('Supply a command directory');
         if (!options.prefix) throw new Error('Supply a command prefix');
         if (!Array.isArray(options.prefix)) options.prefix = [ options.prefix ];
         options.prefix.sort((a, b) => a.length < b.length);
@@ -66,6 +73,10 @@ class CommandHandler {
         }
     }
 
+    /**
+     * Gets the command by its name
+     * @param {string} name The name of the command
+     */
     getCommand(name) {
         if (typeof name === 'undefined' || typeof name === null) {
             throw new Error('Supply a command name.');
