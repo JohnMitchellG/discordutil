@@ -6,9 +6,9 @@ discordutil is a user-friendly, powerful [Node.js](https://nodejs.org) module.
 ## Installation
 **Node.js 6.0.0 or newer is required.**  
 
-**Stable**: `npm i discordutil` [NOT_STABLIZED]
+**Stable**: `npm i discordutil`
 
-**Master**: `npm i chroventer/discordutil` [WORKING]
+**Master**: `npm i chroventer/discordutil`
 
 ## Example
 ```js
@@ -47,4 +47,7 @@ module.exports = class Ping {
 }
 ```
 
-Contributions are open!
+## Links
+* [NPM](https://npmjs.com/package/discordutil)
+* [Discord](https://discord.gg/3yXx8CN)
+* [GitHub](https://github.com/chroventer/discordutil)

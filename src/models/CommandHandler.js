@@ -1,3 +1,5 @@
+'use strict';
+
 const fs = require('fs');
 
 class CommandHandler {
@@ -16,17 +18,35 @@ class CommandHandler {
 
         /**
          * The prefix of the commands for the command handler
-         * @type {string}
+         * @type {Array<string>}
          */
         this.prefix = options.prefix;
 
+        /**
+         * The owner of the client
+         * @type {Array<string>}
+         */
+        this.owner = options.owner;
+
+        /**
+         * The map of commands
+         * @type {Map}
+         */
         this.commands = new Map();
+
+        /**
+         * The map of commands aliases
+         */
         this.aliases = new Map();
 
-        this.load(this.commandDir);
+        this._load(this.commandDir);
     }
 
-    load(commandDir) {
+    get owner() {
+        return this.owner;
+    }
+
+    _load(commandDir) {
         const files = fs.readdirSync(commandDir);
         files.filter((file) => {
             fs.statSync(commandDir + file).isDirectory();
@@ -46,7 +66,7 @@ class CommandHandler {
         }
     }
 
-    getCommand(name = '') {
+    getCommand(name) {
         if (typeof name === 'undefined' || typeof name === null) {
             throw new Error('Supply a command name.');
         }
