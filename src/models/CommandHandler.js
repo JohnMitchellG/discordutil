@@ -43,6 +43,7 @@ class CommandHandler {
 
         /**
          * The map of commands aliases
+         * @type {Map}
          */
         this.aliases = new Map();
 
@@ -52,7 +53,11 @@ class CommandHandler {
     get owner() {
         return this.owner;
     }
-
+    
+    /**
+     * Loads the commands directory
+     * @param {string} commandDir The commands directory to load
+    */
     _load(commandDir) {
         const files = fs.readdirSync(commandDir);
         files.filter((file) => {
